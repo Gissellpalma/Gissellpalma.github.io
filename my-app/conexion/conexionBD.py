@@ -14,7 +14,7 @@ def connectionBD():
             port=56276,
             user="root",
             passwd="33fHAa23dDb5-h1b33b3fb5aaDAgff-C",
-                #passwd="-3GNBRLZpGgc9kPcWT8aBiVNxPPJVGuqLR3",
+                #passwd="3GNBRLZpGgc9kPcWT8aBiVNxPPJVGuqLR3",
             database="railway",
                 #database="crud_python",
             charset='utf8mb4',

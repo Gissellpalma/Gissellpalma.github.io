@@ -1,0 +1,23 @@
+<!-- Agrega estos enlaces en el head de tu vistadc.html -->
+<link rel="stylesheet" href="ruta_a_lightbox/lightbox.min.css">
+<script src="ruta_a_lightbox/lightbox-plus-jquery.min.js"></script>
+
+<div id="galeria">
+    <a href="assets/img/data.jpg" data-lightbox="galeria" data-title="Descripción de la imagen 1">
+      <img src="assets/img/data.jpg" alt="Imagen 1">
+    </a>
+  
+    <a href="assets/img/data.jpg" data-lightbox="galeria" data-title="Descripción de la imagen 2">
+      <img src="assets/img/data.jpg" alt="Imagen 2">
+    </a>
+  
+    <!-- Agrega más imágenes según sea necesario -->
+  </div>
+
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
+  </script>
+

@@ -16,7 +16,7 @@ def recibeInsertRegisterUser(cedula, name, surname, id_area, id_rol, pass_user, 
         cedula, name, surname, pass_user)
 
     if (respuestaValidar):
-        nueva_password = generate_password_hash(pass_user, method='scrypt')
+        nueva_password = generate_password_hash(pass_user, method='scrypt') 
         try:
             with connectionBD() as conexion_MySQLdb:
                 with conexion_MySQLdb.cursor(dictionary=True) as mycursor:
