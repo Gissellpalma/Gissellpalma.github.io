@@ -34,7 +34,7 @@ def borrarUsuario(id):
 def borrarArea(id_area):
     resp = eliminarArea(id_area)
     if resp:
-        flash('El Empleado fue eliminado correctamente', 'success')
+        flash('El area fue eliminada correctamente', 'success')
         return redirect(url_for('lista_areas'))
     else:
         flash('Hay usuarios que pertenecen a esta área', 'error')
@@ -132,36 +132,24 @@ def sensor_hum():
     else:
         flash('Primero debes iniciar sesión.', 'error')
         return redirect(url_for('inicio'))
-    
-#Eliminar registro sensor humo
-@app.route('/eliminar-sensor-humo/<int:id_sensor>', methods=['GET', 'POST'])
-def eliminar_sensor_humo_route(id_sensor):
-    try:
-        # Llama a la función para eliminar el registro del sensor de humo
-        eliminarSensorHumo(id_sensor)
-        flash('Registro del sensor de humo eliminado con éxito.', 'success')
-    except Exception as e:
-        flash(f"Error al eliminar el registro del sensor de humo: {e}", 'error')
-
-    # Redirige a la página principal o a donde desees después de la eliminación
-    return redirect(url_for('inicio'))
-
-
-
-#Datos sensor temperatura
-@app.route('/eliminar-sensor-temperatura/<int:id_sensor>', methods=['GET', 'POST'])
-def eliminar_sensor_temperatura_route(id_sensor):
-    try:
-        # Llama a la función para eliminar el registro del sensor de temperatura
-        eliminarSensorTemperatura(id_sensor)
-        flash('Registro del sensor de temperatura eliminado con éxito.', 'success')
-    except Exception as e:
-        flash(f"Error al eliminar el registro del sensor de temperatura: {e}", 'error')
-
-    # Redirige a la página principal o a donde desees después de la eliminación
-    return redirect(url_for('inicio'))
-
 
 @app.route('/vista-dc')
 def vista_dc():
     return render_template('public/usuarios/vistadc.html')
+
+#Datos tarjeta
+@app.route('/tarjeta-rfid', methods=['GET'])
+def tarjet():
+    if 'conectado' in session:
+        try:
+            # Obtiene los datos de los sensores de temperatura desde la base de datos
+            datos_tarjeta = tarjeta()
+
+            # Renderiza la plantilla con los datos
+            return render_template('public/usuarios/tarjeta_rfid.html', datos_tarjeta = tarjeta(), dataLogin=dataLoginSesion())
+        except Exception as e:
+            flash(f"Error al obtener datos registros de la tarjeta: {e}", 'error')
+            return redirect(url_for('inicio'))
+    else:
+        flash('Primero debes iniciar sesión.', 'error')
+        return redirect(url_for('inicio')) 

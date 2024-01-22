@@ -127,7 +127,7 @@ def lista_usuariosBD():
     try:
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
-                querySQL = "SELECT id_usuario, cedula, nombre_usuario, apellido_usuario, id_area, id_rol, Direccion FROM usuarios"
+                querySQL = "SELECT id_usuario, cedula, nombre_usuario, apellido_usuario, id_area, id_rol, Direccion, Tarjeta FROM usuarios"
                 cursor.execute(querySQL,)
                 usuariosBD = cursor.fetchall()
         return usuariosBD
@@ -275,7 +275,7 @@ def sensor_temperatura():
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
                 # Modifica la consulta según la estructura de tu base de datos
-                querySQL = "SELECT id_sensor, fecha_hora_medicion, humedad, temperatura FROM Sensor_temperatura_DHT11"
+                querySQL = "SELECT id_sensor, fecha_hora_medicion, temperatura FROM Sensor_temperatura_DHT11"
                 cursor.execute(querySQL)
                 datos_sensor_temperatura = cursor.fetchall()
         return datos_sensor_temperatura
@@ -288,7 +288,7 @@ def sensor_humo():
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
                 # Modifica la consulta según la estructura de tu base de datos
-                querySQL = "SELECT id_sensor, fecha_hora_medicion, nivel_humo, nivel_gas FROM Sensor_humo_MQ2"
+                querySQL = "SELECT id_sensor, fecha_hora_medicion, nivel_humo FROM Sensor_humo_MQ2"
                 cursor.execute(querySQL)
                 datos_sensor_humo = cursor.fetchall()
         return datos_sensor_humo
@@ -297,30 +297,18 @@ def sensor_humo():
         return []
 
 
-#Eliminar registro sensor humo
-def eliminarSensorHumo(id_sensor):
+
+
+def tarjeta():
     try:
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
-                querySQL = "DELETE FROM Sensor_humo_MQ2 WHERE id_sensor=%s"
-                cursor.execute(querySQL, (id_sensor,))
-                conexion_MySQLdb.commit()
-                resultado_eliminar = cursor.rowcount
-        return resultado_eliminar
+                # Modifica la consulta según la estructura de tu base de datos
+                querySQL = "SELECT nombre, tarjeta, id_usuario, fecha_hora FROM Tarjeta_RFID ORDER BY fecha_hora DESC"
+                cursor.execute(querySQL)
+                datos_tarjeta = cursor.fetchall()
+        return datos_tarjeta
     except Exception as e:
-        print(f"Error en eliminarSensorHumo: {e}")
+        print(f"Error al obtener registros de la tarjeta: {e}")
         return []
-    
-#Eliminar registro sensor temperauta
-def eliminarSensorTemperatura(id_sensor):
-    try:
-        with connectionBD() as conexion_MySQLdb:
-            with conexion_MySQLdb.cursor(dictionary=True) as cursor:
-                querySQL = "DELETE FROM Sensor_temperatura_DHT11 WHERE id_sensor=%s"
-                cursor.execute(querySQL, (id_sensor,))
-                conexion_MySQLdb.commit()
-                resultado_eliminar = cursor.rowcount
-        return resultado_eliminar
-    except Exception as e:
-        print(f"Error en eliminarSensorTemperatura: {e}")
-        return []
+

@@ -20,7 +20,7 @@
             <input type="text" name="nombre_area" id="nombreSeleccionado" class="form-control"
               placeholder="Nombre seleccionado" />
             <div class="botones mt-3">
-              <button id="botonGuardar" class="btn btn-outline-primary btn-sm" type="submit">
+              <button id="botonGuardar" class="btn btn-sm" style="background-color: #699494; color: white; border-color: #699494; margin-left: 10px;" type="submit">
                 <!-- Cambia el tipo de botón a 'submit' para enviar el formulario -->
                 Crear
               </button>
@@ -79,7 +79,8 @@
               <td>{{ area.nombre_area }}</td>
 
               <td width="10px">
-                <a onclick="editar('{{area.nombre_area}}', '{{area.id_area}}')" class="btn btn-success btn-sm" tooltip="Actualizar Registro">
+                <a onclick="editar('{{area.nombre_area}}', '{{area.id_area}}')" class="btn btn-sm" style="background-color: #699494; color: white; border-color:
+                 #699494; margin-left: 10px;" tooltip="Actualizar Registro">
                   <i class="bi bi-arrow-clockwise"></i>
                   Actualizar
                 </a>

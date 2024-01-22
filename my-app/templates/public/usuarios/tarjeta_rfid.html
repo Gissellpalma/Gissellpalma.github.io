@@ -1,0 +1,44 @@
+{% extends 'public/base_cpanel.html' %}
+
+{% block title %}MetaSave Information 🖥️ | Tarjeta {% endblock %}
+
+{% block body %}
+  <div class="card content_consignaciones" style="border-radius: 0px !important">
+    <section id="respuestaFiltroMes">
+      <h2 class="text-center mt-5 mb-5">
+        Registros de Tarjeta
+        <hr />
+      </h2>
+
+      <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+          <thead>
+            <tr style="background-color: #ddd">
+              <th>ID_Usuario</th>
+              <th>Nombre y Apellido</th>
+              <th>UID Tarjeta</th>
+              <th>Fecha-hora acceso</th>
+              <!-- La columna de Acciones se ha eliminado -->
+            </tr>
+          </thead>
+          <tbody>
+            {% for Tarjeta_RFID in datos_tarjeta %}
+              <tr>
+                <td>{{ Tarjeta_RFID.id_usuario}}</td>
+                <td>{{ Tarjeta_RFID.nombre}} </td>
+                <td>{{ Tarjeta_RFID.tarjeta }}</td>
+                <td>{{ Tarjeta_RFID.fecha_hora}}</td>
+                <!-- La columna de Acciones se ha eliminado -->
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Script Custom -->
+  {% block customJS %}
+  <!-- No se ha modificado el script ya que la función eliminarSensor no se utiliza -->
+  {% endblock %}
+{% endblock %}

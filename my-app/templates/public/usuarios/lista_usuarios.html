@@ -11,7 +11,7 @@
       <hr />
     </h2>
 
-    <p class="btn btn-success" style="margin-left: 10px;">
+    <p class="btn" style="background-color: #699494; color: white; border-color: #699494; margin-left: 10px;">
       <a href="./register-user">
         <span style="color: white;">Nuevo Usuario</span>
       </a>
@@ -24,6 +24,7 @@
             <th>Cédula</th>
             <th>Nombre</th>
             <th>Direccion</th>
+            <th>Tarjeta</th>
             <th>Área</th>
             <th>Rol</th>
             <th>Acciones</th>
@@ -35,6 +36,7 @@
             <td>{{ usuario.cedula}}</td>
             <td>{{ usuario.nombre_usuario}} {{usuario.apellido_usuario}}</td> 
             <td>{{ usuario.Direccion}}</td> 
+            <td>{{ usuario.Tarjeta}}</td> 
             <td>
               {%for area in areas%}
               {%if area.id_area == usuario.id_area%}
@@ -54,8 +56,7 @@
             <td>
               <a
                   href="/mi-perfil/{{usuario.id_usuario}}"
-                  class="btn btn-success btn-sm"
-                  tooltip="Actualizar Registro">
+                  class="btn btn-sm" style="background-color: #699494; color: white; border-color: #699494; margin-left: 10px;">
                   <i class="bi bi-arrow-clockwise"></i>
                   Actualizar
                 </a>

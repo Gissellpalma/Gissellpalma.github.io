@@ -41,8 +41,9 @@
       class="menu-item {% if request.path == '/lista-de-areas' %} active{% endif %}"
     >
       <a href="/lista-de-areas" class="menu-link">
-        <i class="menu-icon bi bi-person-lines-fill"></i>
-        <div data-i18n="Boxicons">Lista de Áreas</div>
+        <i class="bi bi-houses"></i>
+        <span class="menu-text" style="margin-left: 12px;"></span>
+        <div data-i18n="Boxicons">Departamentos</div>
       </a>
     </li>
     {%endif%} {% if dataLogin.rol == 1 %}
@@ -72,7 +73,18 @@
         <a href="/sensor-humo" class="menu-link">
           <i class="bi bi-fire"></i>
           <span class="menu-text" style="margin-left: 12px;"> <!-- Agregado un margen izquierdo al texto -->
-            <div data-i18n="Etiqueta">Sensor de humo y gas</div>
+            <div data-i18n="Etiqueta">Sensor de humo </div>
+          </span>
+        </a>
+      {% endif %}
+    </li>
+
+    <li class="menu-item {% if request.path == '/tarjeta-rfid' %} active {% endif %}">
+      {% if dataLogin.rol == 1 and dataLogin.id == 1 %}  
+        <a href="/tarjeta-rfid" class="menu-link">
+          <i class="bi bi-credit-card"></i>
+          <span class="menu-text" style="margin-left: 12px;"> <!-- Agregado un margen izquierdo al texto -->
+            <div data-i18n="Etiqueta">Tarjeta RFID</div>
           </span>
         </a>
       {% endif %}

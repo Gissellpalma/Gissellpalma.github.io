@@ -10,6 +10,12 @@
         <hr />
       </h2>
 
+      <p class="btn" style="background-color: #699494; color: white; border-color: #699494; margin-left: 10px;">
+        <a href="/actualizar-h" style="color: white;">Actualizar</a>
+      </p>
+      
+
+
       <div class="table-responsive text-nowrap">
         <table class="table table-hover">
           <thead>
@@ -17,8 +23,6 @@
               <th>ID</th>
               <th>Fecha y Hora de Medición</th>
               <th>Nivel de humo</th>
-              <th>Nivel de gas</th>
-              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -27,22 +31,6 @@
                 <td>{{ sensor_humo_mq2.id_sensor }}</td>
                 <td>{{ sensor_humo_mq2.fecha_hora_medicion }}</td>
                 <td>{{ sensor_humo_mq2.nivel_humo }}</td>
-                <td>{{ sensor_humo_mq2.nivel_gas }}</td>
-                <td>
-                  
-                  <!-- Botón de eliminar -->
-                  <a style="color: white;"
-                     onclick="eliminarSensorHumo('{{ sensor_humo_mq2.id_sensor }}');"
-                     class="btn btn-danger btn-sm"
-                     data-bs-toggle="tooltip"
-                     data-bs-offset="0,4"
-                     data-bs-placement="top"
-                     data-bs-html="true"
-                     title="<span>Eliminar Sensor ID {{ sensor_humo_mq2.id_sensor }}</span>">
-                    <i class="bi bi-trash3"></i>
-                    Eliminar
-                  </a>
-                </td>
               </tr>
             {% endfor %}
           </tbody>
@@ -54,14 +42,7 @@
   <!-- Script Custom -->
   {% block customJS %}
   <script>
-    function eliminarSensorHumo(id_sensor) {
-      if (confirm("¿Estás seguro que deseas eliminar el registro de sensor?")) {
-        let url = `/eliminar-sensor-humo/${id_sensor}`;
-        if (url) {
-          window.location.href = url;
-        }
-      }
-    }
+    // Puedes dejar este espacio vacío o incluir otro JavaScript personalizado si lo necesitas.
   </script>
   {% endblock %}
 {% endblock %}
