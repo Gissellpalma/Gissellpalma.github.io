@@ -28,13 +28,14 @@
       </a>
     </li>
 
-    <li
-      class="menu-item {% if request.path == '/reporte-accesos' %} active{%endif%}"
-    >
-      <a href="/reporte-accesos" class="menu-link">
-        <i class="menu-icon bi bi-file-lock-fill"></i>
-        <div data-i18n="Tables">Reporte Accesos</div>
-      </a>
+    
+    <li class="menu-item {% if request.path == '/reporte-accesos' %} active{% endif%}">
+      {% if dataLogin.rol == 1 %}
+        <a href="/reporte-accesos" class="menu-link">
+          <i class="menu-icon bi bi-file-lock-fill"></i>
+          <div data-i18n="Tables">Reporte Accesos</div>
+        </a>
+      {% endif %}
     </li>
     {% if dataLogin.rol == 1 %}
     <li
@@ -84,12 +85,11 @@
         <a href="/tarjeta-rfid" class="menu-link">
           <i class="bi bi-credit-card"></i>
           <span class="menu-text" style="margin-left: 12px;"> <!-- Agregado un margen izquierdo al texto -->
-            <div data-i18n="Etiqueta">Tarjeta RFID</div>
+            <div data-i18n="Etiqueta">Registro Acceso Físico</div>
           </span>
         </a>
       {% endif %}
     </li>
-    
 
     <li 
       class="menu-item {% if request.path == '/vista-dc' %} active {% endif %}">

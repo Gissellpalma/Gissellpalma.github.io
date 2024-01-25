@@ -3,6 +3,7 @@ from app import app
 from flask import render_template, request, flash, redirect, url_for, session,  jsonify
 from mysql.connector.errors import Error
 
+
 # Importando cenexión a BD
 from controllers.funciones_home import *
 
@@ -153,3 +154,4 @@ def tarjet():
     else:
         flash('Primero debes iniciar sesión.', 'error')
         return redirect(url_for('inicio')) 
+

@@ -1,0 +1,88 @@
+{% extends 'public/base_cpanel.html' %}
+
+{% block title %}MetaSave Information 🖥️ | Tarjeta {% endblock %}
+
+{% block body %}
+  <div class="card content_consignaciones" style="border-radius: 0px !important">
+    <section id="respuestaFiltroMes">
+      <h2 class="text-center mt-5 mb-5">
+        Registros de Tarjeta
+        <hr />
+      </h2>
+
+      <div class="row mb-3">
+        <div class="col-md-auto">
+          <a href="/descargar-logs-accesos" class="btn btn-sm btn-success" tooltip="Descargar Registros Tarjeta">
+            <i class="bi bi-file-excel"></i>
+            Descargar Registros
+          </a>
+        </div>
+      </div>
+
+      <div class="table-responsive text-nowrap">
+        <table class="table table-hover" id="tarjetaTable">
+          <thead>
+            <tr style="background-color: #ddd">
+              <th>ID_Usuario</th>
+              <th>Nombre y Apellido</th>
+              <th>UID Tarjeta</th>
+              <th>Fecha-hora acceso</th>
+              <!-- La columna de Acciones se ha eliminado -->
+            </tr>
+          </thead>
+          <tbody>
+            {% for Tarjeta_RFID in datos_tarjeta %}
+              <tr>
+                <td>{{ Tarjeta_RFID.id_usuario}}</td>
+                <td>{{ Tarjeta_RFID.nombre}} </td>
+                <td>{{ Tarjeta_RFID.tarjeta }}</td>
+                <td>{{ Tarjeta_RFID.fecha_hora}}</td>
+                <!-- La columna de Acciones se ha eliminado -->
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- Script Custom -->
+  {% block customJS %}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#tarjetaTable').DataTable();
+      });
+
+      function exportarExcel() {
+        var table = $('#tarjetaTable').DataTable();
+        var data = table.data().toArray();
+        var columns = table.columns().header().toArray().map(function(th) {
+          return $(th).text();
+        });
+
+        var jsonData = [];
+        for (var i = 0; i < data.length; i++) {
+          var obj = {};
+          for (var j = 0; j < columns.length; j++) {
+            obj[columns[j]] = data[i][j];
+          }
+          jsonData.push(obj);
+        }
+
+        var ws = XLSX.utils.json_to_sheet(jsonData);
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+        XLSX.writeFile(wb, 'registros_tarjeta.xlsx');
+      }
+
+      // Asigna la función exportarExcel al clic del botón de descarga
+      $('.btn-descargar-registros').on('click', function() {
+        exportarExcel();
+      });
+    </script>
+  {% endblock %}
+{% endblock %}

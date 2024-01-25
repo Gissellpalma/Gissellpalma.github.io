@@ -19,7 +19,7 @@
         <table class="table table-hover">
           <thead>
             <tr style="background-color: #ddd">
-              <th>ID</th>
+              
               <th>Fecha y Hora de Medición</th>
               <th>Temperatura</th>
             </tr>
@@ -27,7 +27,7 @@
           <tbody>
             {% for Sensor_temperatura_DHT11 in datos_sensor_temperatura %}
               <tr>
-                <td>{{ Sensor_temperatura_DHT11.id_sensor }}</td>
+                
                 <td>{{ Sensor_temperatura_DHT11.fecha_hora_medicion }}</td>
                 <td>{{ Sensor_temperatura_DHT11.temperatura }}</td>
               </tr>

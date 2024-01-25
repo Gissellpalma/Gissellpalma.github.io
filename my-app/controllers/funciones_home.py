@@ -275,7 +275,7 @@ def sensor_temperatura():
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
                 # Modifica la consulta según la estructura de tu base de datos
-                querySQL = "SELECT id_sensor, fecha_hora_medicion, temperatura FROM Sensor_temperatura_DHT11"
+                querySQL = "SELECT fecha_hora_medicion, temperatura FROM Sensor_temperatura_DHT11"
                 cursor.execute(querySQL)
                 datos_sensor_temperatura = cursor.fetchall()
         return datos_sensor_temperatura
@@ -288,7 +288,7 @@ def sensor_humo():
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
                 # Modifica la consulta según la estructura de tu base de datos
-                querySQL = "SELECT id_sensor, fecha_hora_medicion, nivel_humo FROM Sensor_humo_MQ2"
+                querySQL = "SELECT fecha_hora_medicion, nivel_humo FROM Sensor_humo_MQ2"
                 cursor.execute(querySQL)
                 datos_sensor_humo = cursor.fetchall()
         return datos_sensor_humo
@@ -306,9 +306,9 @@ def tarjeta():
                 # Modifica la consulta según la estructura de tu base de datos
                 querySQL = "SELECT nombre, tarjeta, id_usuario, fecha_hora FROM Tarjeta_RFID ORDER BY fecha_hora DESC"
                 cursor.execute(querySQL)
+                
                 datos_tarjeta = cursor.fetchall()
         return datos_tarjeta
     except Exception as e:
         print(f"Error al obtener registros de la tarjeta: {e}")
         return []
-

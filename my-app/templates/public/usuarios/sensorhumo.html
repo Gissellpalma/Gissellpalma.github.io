@@ -20,7 +20,7 @@
         <table class="table table-hover">
           <thead>
             <tr style="background-color: #ddd">
-              <th>ID</th>
+              
               <th>Fecha y Hora de Medición</th>
               <th>Nivel de humo</th>
             </tr>
@@ -28,7 +28,6 @@
           <tbody>
             {% for sensor_humo_mq2 in datos_sensor_humo %}
               <tr>
-                <td>{{ sensor_humo_mq2.id_sensor }}</td>
                 <td>{{ sensor_humo_mq2.fecha_hora_medicion }}</td>
                 <td>{{ sensor_humo_mq2.nivel_humo }}</td>
               </tr>
