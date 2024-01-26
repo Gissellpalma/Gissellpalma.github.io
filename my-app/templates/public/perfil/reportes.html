@@ -17,12 +17,12 @@
         style="width: 90%; align-self: center; background-color: #caecff">
         <div class="row p-3 text-center" style="margin-bottom: -18px;">
           <div class="col-md-6">
-            <p class="acceso"><b>Fecha Acceso Activo:</b></p>
-            <p class="acceso" style="margin-top: -10px;">{{lastAccess.fecha}}</p>
+            <p class="acceso" style="font-size: 18px;"><b>Fecha Acceso Activo:</b></p>
+            <p class="acceso" style="font-size: 16px; margin-top: -10px;">{{lastAccess.fecha}}</p>
           </div>
           <div class="col-md-6">
-            <p class="acceso"><b>Clave Acceso Activo:</b></p>
-            <p class="acceso" style="margin-top: -10px;">{{lastAccess.clave}}</p>
+            <p class="acceso" style="font-size: 18px;" ><b>Clave Acceso Activo:</b></p>
+            <p class="acceso" style="font-size: 16px; margin-top: -10px;">{{lastAccess.clave}}</p>
           </div>
         </div>
 
@@ -57,7 +57,7 @@
           <tr>
             <td>{{ reporte.id_acceso}}</td>
             <td>{{ reporte.cedula}}</td>
-            <td>{{ reporte.fecha}}</td>
+            <td>{{ reporte.fecha.strftime('%d/%m/%Y %H:%M:%S')}}</td>
             <td>{{ reporte.nombre_area}}</td>
             <td>{{ reporte.clave}}</td>
           </tr>

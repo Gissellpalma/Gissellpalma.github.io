@@ -10,16 +10,14 @@
         <hr />
       </h2>
 
-      <p class="btn" style="background-color: #699494; color: white; border-color: #699494; margin-left: 10px;">
-        <a href="/actualizar-t" style="color: white;">Actualizar</a>
-      </p>
-
+      <button class="btn" style="background-color: #699494; color: white; border-color: #699494; margin-left: 10px; margin-top: -40px;" id="actualizarBtn">
+        Actualizar
+      </button>
 
       <div class="table-responsive text-nowrap">
         <table class="table table-hover">
           <thead>
             <tr style="background-color: #ddd">
-              
               <th>Fecha y Hora de Medición</th>
               <th>Temperatura</th>
             </tr>
@@ -27,7 +25,6 @@
           <tbody>
             {% for Sensor_temperatura_DHT11 in datos_sensor_temperatura %}
               <tr>
-                
                 <td>{{ Sensor_temperatura_DHT11.fecha_hora_medicion }}</td>
                 <td>{{ Sensor_temperatura_DHT11.temperatura }}</td>
               </tr>
@@ -41,7 +38,10 @@
   <!-- Script Custom -->
   {% block customJS %}
   <script>
-    // Puedes dejar este espacio vacío o incluir otro JavaScript personalizado si lo necesitas.
+    document.getElementById('actualizarBtn').addEventListener('click', function() {
+      // Recargar la página actual
+      location.reload();
+    });
   </script>
   {% endblock %}
 {% endblock %}

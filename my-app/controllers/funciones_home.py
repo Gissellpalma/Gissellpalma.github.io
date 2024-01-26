@@ -275,7 +275,7 @@ def sensor_temperatura():
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
                 # Modifica la consulta según la estructura de tu base de datos
-                querySQL = "SELECT fecha_hora_medicion, temperatura FROM Sensor_temperatura_DHT11"
+                querySQL = "SELECT fecha_hora_medicion, temperatura FROM Sensor_temperatura_DHT11 ORDER BY fecha_hora_medicion DESC"
                 cursor.execute(querySQL)
                 datos_sensor_temperatura = cursor.fetchall()
         return datos_sensor_temperatura
@@ -288,7 +288,7 @@ def sensor_humo():
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
                 # Modifica la consulta según la estructura de tu base de datos
-                querySQL = "SELECT fecha_hora_medicion, nivel_humo FROM Sensor_humo_MQ2"
+                querySQL = "SELECT fecha_hora_medicion, nivel_humo FROM Sensor_humo_MQ2 ORDER BY fecha_hora_medicion DESC"
                 cursor.execute(querySQL)
                 datos_sensor_humo = cursor.fetchall()
         return datos_sensor_humo
@@ -297,14 +297,12 @@ def sensor_humo():
         return []
 
 
-
-
 def tarjeta():
     try:
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
                 # Modifica la consulta según la estructura de tu base de datos
-                querySQL = "SELECT nombre, tarjeta, id_usuario, fecha_hora FROM Tarjeta_RFID ORDER BY fecha_hora DESC"
+                querySQL = "SELECT nombre, tarjeta, id_usuario, fecha_hora, area FROM Tarjeta_RFID ORDER BY fecha_hora DESC"
                 cursor.execute(querySQL)
                 
                 datos_tarjeta = cursor.fetchall()
