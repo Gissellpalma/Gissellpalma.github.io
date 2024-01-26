@@ -1,24 +1,21 @@
-## CRUD con Python 🐍 MySQL 💾 y un Dashboard Asombroso 🚀
+## PROYECTO INTEGRADOR  DATA CENTER 🖥️
 
-##### Aprende a desarrollar un sistema CRUD utilizando Python 🐍 y MySQL 💾 mientras creas un impresionante panel de control. Este curso te guiará a través de la creación de aplicaciones interactivas y eficientes, permitiéndote gestionar datos con facilidad.
+##### Nuestro Proyecto Integrador se fundamenta en la creación de una maqueta de un Data Center CON la implementación de la electrónica con Arduino potencia la interconexión y el control eficiente de los sistemas. Hemos integrado sensores de humo y temperatura para garantizar un monitoreo continuo del entorno, utilizamos una base de datos en la nube de Google Cloud. En cuanto a la materia seguridad de la información, implementamos prácticas avanzadas para salvaguardar los datos sensibles. Utilizamos técnicas de encriptación de contraseñas para proteger la integridad de las credenciales de acceso. Por último, hemos incorporado un sistema de registro de logs de acceso mediante tarjetas RFID. 
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/Dashboard-python-login-urian-viera.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/proyecto/imagenes/Dashboard-python-login-urian-im1.png)
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/dashboard-python-crear-user-urian-viera.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/proyecto/imagenes/Dashboard-python-login-urian-im2.png)
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/dashboard-python-recuperar-clave-urian-viera.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/proyecto/imagenes/Dashboard-python-login-urian-im3.png)
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/dashborad-python-home-urian-viera.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/proyecto/imagenes/Dashboard-python-login-urian-im4.png)
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/dashboard-python-registrar-cliente-urian-viera.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/proyecto/imagenes/Dashboard-python-login-urian-im5.png)
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/dashboard-python-lista-empleados-urian-viera.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/proyecto/imagenes/Dashboard-python-login-urian-im6.png)
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/dashboard-python-lista-usuarios-urian-viera.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/proyecto/imagenes/Dashboard-python-login-urian-im7.png)
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/dashboard-python-editar-perfil-urian-viera.png)
-
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/dashboard-python-reporte-empleados-urian-viera.png)
 
 ### Requerimientos 📋
 
