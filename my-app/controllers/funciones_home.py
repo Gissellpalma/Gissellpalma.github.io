@@ -302,7 +302,7 @@ def tarjeta():
         with connectionBD() as conexion_MySQLdb:
             with conexion_MySQLdb.cursor(dictionary=True) as cursor:
                 # Modifica la consulta según la estructura de tu base de datos
-                querySQL = "SELECT nombre, tarjeta, id_usuario, fecha_hora, area FROM Tarjeta_RFID ORDER BY fecha_hora DESC"
+                querySQL = "SELECT nombre, tarjeta, id_usuario, fecha_hora, area, mensaje FROM Tarjeta_RFID ORDER BY fecha_hora DESC"
                 cursor.execute(querySQL)
                 
                 datos_tarjeta = cursor.fetchall()
